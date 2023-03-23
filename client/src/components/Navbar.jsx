@@ -59,6 +59,9 @@ const Navbar = () => {
     <Box
       bg={useColorModeValue("gray.100", "gray.900")} //useColorModeValue is a React hook used to change any value or style based on the color mode. It takes 2 arguments: the value in light mode, and the value in dark mode.
       px={4}
+      position="sticky"
+      top={0}
+      zIndex="sticky"
     >
       <Flex h={16} alignItems="center" justifyContent="space-between">
         {/* Icon button renders an icon within in a button. */}
