@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 
 // importing config obj
-import config from "./config/index.js" 
+import config from "../config/index.js" 
 
 const connectToMongoDB = async () =>{
   mongoose.set("strictQuery", false);

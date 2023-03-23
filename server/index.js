@@ -1,7 +1,7 @@
 // .env config obj
 import config from "./config/index.js";
 import app from "./app.js";
-import connectToMongoDB from "./database.js";
+import connectToMongoDB from "./database/database.js";
 
 (async ()=>{
   try {
