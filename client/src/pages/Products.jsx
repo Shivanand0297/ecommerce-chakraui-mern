@@ -1,12 +1,45 @@
+// chakra imports
 import { Center, Wrap, WrapItem } from "@chakra-ui/react";
+
+// ProductCard component
 import ProductCard from "../components/ProductCard";
-import { products } from "../products";
+
+// to access redux store
+import { useSelector } from "react-redux";
+
+// custom hook so run async thunks
+import useThunk from "../hooks/useThunk";
+
+// fetchProducts async thunk to make api call
+import { fetchProducts } from "../store";
+
+// import { products } from "../products";
+import { useEffect } from "react";
 
 const Products = () => {
+
+  // extracting product data from redux store
+  const {data: products} = useSelector((state)=>{
+    return state.products;
+  })
+
+  // extracting runThunk function, isloading, and error state from useThunk() hook
+   const [doFetchProducts, isLoadingProducts, fetchProductsError] = useThunk(fetchProducts);
+
+  // running doFetchProducts on first render 
+  useEffect(()=>{
+    doFetchProducts();
+  }, [doFetchProducts])
+
+
+
   return (
     // Wrap: Wrap composes the Box component and renders a <ul> tag
     <Wrap spacing="30px" minHeight="100vh" justify="center" pt="30px">
-      {products.map((product) => (
+      
+      { isLoadingProducts ? 
+          "Loading..." : 
+          products.map((product) => (
 
         // WrapItem: WrapItem composes the Box component and renders the HTML <li> tag
         <WrapItem key={product._id} >
@@ -17,6 +50,7 @@ const Products = () => {
           </Center>
         </WrapItem>
       ))}
+      {fetchProductsError ? fetchProductsError.message : null}
     </Wrap>
   );
 };
