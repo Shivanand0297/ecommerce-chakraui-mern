@@ -78,7 +78,7 @@ const Navbar = () => {
         <HStack spacing={3} >
           <Link as={ReactLink} to="/" _hover={{ textDecoration: "none" }}>
             <Flex alignItems="center">
-              <Icon as={IoLogoXing} h={6} w={6} color="orange.400" />
+              <Icon as={IoLogoXing} h={6} w={6} color="green.600" />
               <Text as="span" fontWeight="extrabold">
                 TechVerse
               </Text>
@@ -114,8 +114,8 @@ const Navbar = () => {
             to="/register"
             fontSize="sm"
             fontWeight={600}
-            bg="orange.400"
-            _hover={{ bg: "orange.500" }}
+            bg="green.600"
+            _hover={{ bg: "green.700" }}
             color="white"
             colorScheme="orange"
             display={{ base: "none", md: "flex" }}

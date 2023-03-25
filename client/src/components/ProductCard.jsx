@@ -27,11 +27,11 @@ const Rating = ({rating, reviewsNumber}) =>{
   return(
     <Flex >
       <HStack spacing="2px" >
-        <StarIcon fontSize={iconSize} w="14px" color="orange.500" />
-        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=2 ? "orange.500" : "gray.200"} />
-        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=3 ? "orange.500" : "gray.200"} />
-        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=4 ? "orange.500" : "gray.200"} />
-        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=5 ? "orange.500" : "gray.200"} />
+        <StarIcon fontSize={iconSize} w="14px" color="green.500" />
+        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=2 ? "green.500" : "gray.200"} />
+        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=3 ? "green.500" : "gray.200"} />
+        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=4 ? "green.500" : "gray.200"} />
+        <StarIcon fontSize={iconSize} w="14px" color={ rating  >=5 ? "green.500" : "gray.200"} />
       </HStack>
       <Text as="span" fontWeight="bold" fontSize="md" ml="5px"  >
         {`${reviewsNumber}`} { reviewsNumber >1 ? "Reviews" : "Review"}
@@ -53,7 +53,7 @@ const ProductCard = ({ product }) => {
       shadow="lg"
       position="relative"
     >
-      {product.isNew && (
+      {product.productIsNew && (
         <Circle
           size="10px"
           position="absolute"
@@ -90,7 +90,7 @@ const ProductCard = ({ product }) => {
           </Badge>
         ) : null}
 
-        {product.isNew ? (
+        {product.productIsNew ? (
           <Badge
             rounded="full"
             px={2}
@@ -116,7 +116,7 @@ const ProductCard = ({ product }) => {
         </Link>
       </Flex>
       <Flex justifyContent="space-between" alignItems="center" py="2" >
-          <Rating rating={product.rating} reviewsNumber={product.numReviews} />
+          <Rating rating={product.rating} reviewsNumber={product.noOfReviews} />
       </Flex>
       <Flex justifyContent="space-between" alignItems="center">
         <Box fontSize="md" color={useColorModeValue("gray.800", "white")}>
